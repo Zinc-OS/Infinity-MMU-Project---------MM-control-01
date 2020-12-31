@@ -12,14 +12,14 @@
 #include "pins.h"
 #include "tmc2130.h"
 
-int8_t filament_type[EXTRUDERS] = {-1, -1, -1, -1, -1};
+int8_t filament_type[EXTRUDERS] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 static bool isIdlerParked = false;
 
 static const int selector_steps_after_homing = -3700;
 static const int idler_steps_after_homing = -130;
 
-static const int selector_steps = 2790/4;
-static const int idler_steps = 1420 / 4;    // 2 msteps = 180 / 4
+static const int selector_steps = 2790/4;  //remains the same, as the length of the mmu2 will be stretched
+static const int idler_steps = 4544 / 4;    // 2 msteps = 180 / 4   //originally 1420 / 4. We are moving from 5 to 16, so 1420*(16/5), or (16 * 284)/4
 static const int idler_parking_steps = (idler_steps / 2) + 40;  // 40
 
 
