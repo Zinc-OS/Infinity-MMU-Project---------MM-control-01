@@ -8,7 +8,7 @@
 #include "permanent_storage.h"
 #include "main.h"
 #include "motion.h"
-
+const int EXTRUDERS=10;
 const int ButtonPin = A2;
 
 void settings_bowden_length();
@@ -28,7 +28,7 @@ bool settings_select_filament()
 
     if(Btn::middle == buttonPressed())
     {
-        shr16_set_led(2 << 2 * (4 - active_extruder));
+        shr16_set_led(2 << 2 * (EXTRUDERS - active_extruder));
         delay(500);
         if (Btn::middle == buttonPressed())
         {
